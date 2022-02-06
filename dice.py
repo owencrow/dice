@@ -1,5 +1,6 @@
 """ dice.py
 """
+import random
 
 def parse_input(input_string):
     """Return 'input_string' as int between 1-6
@@ -10,6 +11,17 @@ def parse_input(input_string):
         print("Please enter a number from 1 to 6.")
         raise SystemExit(1)
 
+def roll_dice(num_dice):
+    """Return a list of integers with length 'num_dice'.
+    """
+    roll_results = []
+    for _ in range(num_dice):
+        roll = random.randint(1, 6)
+        roll_results.append(roll)
+    return roll_results
+
 num_dice_input = input("How many dice to roll? [1-6] ")
 num_dice = parse_input(num_dice_input)
+roll_results = roll_dice(num_dice)
+print(roll_results)
 
